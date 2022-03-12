@@ -21,19 +21,12 @@ export default class Calculator extends Component {
     setOperation(operation){
         
         const values = [...this.state.values]
-        console.log(this.state)
-        console.log(operation)
         if(this.state.current ===0){
             this.setState({operation, current: 1, clearDisplay: true})
             
         }else{
             const equals = operation === '='
             const currentOperation = this.state.operation
-            
-            
-
-            console.log(values[0])
-        console.log(values[1])
             try{
                 values[0] = eval(`${values[0]} ${currentOperation} ${this.state.displayValue}`)
             } catch(e){
@@ -71,11 +64,9 @@ export default class Calculator extends Component {
             
             const values = [...this.state.values]
             values[i] = newValue
-            console.log(i)
             this.setState([values[i]])
            
             initialState.values[i] = values[i]
-            console.log(initialState.values[i],"valor do estado inicial")
         }
         
     }
